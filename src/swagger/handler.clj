@@ -3,11 +3,15 @@
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
+(defroutes more-routes
+  (GET "/ping" [] "pong"))
+
 (defroutes app-routes
   (api
     {:swagger {:ui "/api-docs"
                :spec "/swagger.json"}}
-    (GET "/" [] "Hello World"))
+    (GET "/" [] "Hello World")
+    more-routes)
   (route/not-found "Not Found"))
 
 (def app

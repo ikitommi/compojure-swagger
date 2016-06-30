@@ -3,7 +3,8 @@
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [metosin/compojure-api "1.1.2"]
+                 [metosin/compojure-api "1.1.3"]
+                 [ring/ring-core "1.5.0"]
                  [ring/ring-defaults "0.1.5"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler swagger.handler/app}
