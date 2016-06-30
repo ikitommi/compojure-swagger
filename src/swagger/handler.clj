@@ -1,10 +1,13 @@
 (ns swagger.handler
-  (:require [compojure.core :refer :all]
+  (:require [compojure.api.sweet :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
+  (api
+    {:swagger {:ui "/api-docs"
+               :spec "/swagger.json"}}
+    (GET "/" [] "Hello World"))
   (route/not-found "Not Found"))
 
 (def app
